@@ -15,6 +15,37 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
+    // --- Scrollspy: Highlight Active Nav Link ---
+    const sections = document.querySelectorAll('main section[id]');
+    const navAnchors = document.querySelectorAll('.nav-links a');
+
+    function updateActiveNav() {
+        const scrollY = window.scrollY + 100; // 100px offset for navbar height
+        let current = '';
+
+        sections.forEach(section => {
+            const sectionTop = section.offsetTop;
+            const sectionHeight = section.offsetHeight;
+            if (scrollY >= sectionTop && scrollY < sectionTop + sectionHeight) {
+                current = section.getAttribute('id');
+            }
+        });
+
+        // If scrolled to very top, default to 'home'
+        if (window.scrollY < 80) current = 'home';
+
+        navAnchors.forEach(a => {
+            a.classList.remove('active');
+            if (a.getAttribute('href') === '#' + current) {
+                a.classList.add('active');
+            }
+        });
+    }
+
+    window.addEventListener('scroll', updateActiveNav);
+    updateActiveNav(); // Run on page load too
+
+
     // --- Mobile Menu Toggle ---
     const mobileBtn = document.getElementById('mobile-menu-btn');
     const navLinks = document.getElementById('nav-links');

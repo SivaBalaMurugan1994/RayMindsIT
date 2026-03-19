@@ -184,6 +184,13 @@ h2 {
   color: var(--corp-blue);
 }
 
+.nav-links a.active {
+  color: var(--corp-blue);
+  font-weight: 700;
+  border-bottom: 2px solid var(--corp-blue);
+  padding-bottom: 2px;
+}
+
 .nav-toggle {
   display: none;
   font-size: 1.5rem;
@@ -568,7 +575,7 @@ h2 {
   align-items: center;
   justify-content: center;
   padding: 30px 15px;
-  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease;
 }
 
@@ -837,27 +844,31 @@ h2 {
     order: 1;
   }
 
-  #pricing {
+  /* Pricing moved directly under Hero */
+  #about {
     order: 2;
+  }
+
+  #services {
+    order: 3;
+  }
+
+  #portfolio {
+    order: 4;
+  }
+
+  #pricing {
+    order: 5;
     margin-top: 0;
     padding-top: 40px;
   }
 
-  /* Pricing moved directly under Hero */
-  #about {
-    order: 3;
-  }
-
-  #services {
-    order: 4;
-  }
-
-  #portfolio {
-    order: 5;
+  #tech-stacks {
+    order: 6;
   }
 
   #contact {
-    order: 6;
+    order: 7;
   }
 
   /* Adjust Components for Mobile */
@@ -917,7 +928,19 @@ h2 {
     grid-template-columns: 1fr;
     gap: 40px;
   }
-  
+
+  /* Services: 2-col grid on mobile instead of overflowing 4-col */
+  .card-grid-4 {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 16px;
+  }
+
+  /* Portfolio grid: single column on small screens */
+  .portfolio-grid {
+    grid-template-columns: 1fr !important;
+    gap: 20px;
+  }
+
   .tech-card {
     width: calc(33.333% - 20px);
   }
@@ -960,7 +983,7 @@ h2 {
   .iphone-screen .pricing-features {
     margin-top: 20px !important;
   }
-  
+
   .tech-card {
     width: calc(50% - 20px);
   }
