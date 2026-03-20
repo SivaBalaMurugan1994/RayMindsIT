@@ -946,9 +946,13 @@ h2 {
 
   .pricing-grid,
   .pricing-devices-grid,
-  .contact-info-row,
-  .contact-form-split,
   .tech-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .contact-info-row,
+  .contact-form-split {
     grid-template-columns: 1fr;
     gap: 0px;
   }
