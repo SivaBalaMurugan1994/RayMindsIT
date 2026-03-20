@@ -4,8 +4,8 @@
 
 :root {
   /* Corporate Colors */
-  --corp-blue: #2874F0;
-  --corp-blue-dark: #1e5bbd;
+  --corp-blue: #4caf50;
+  --corp-blue-dark: #388e3c;
   --corp-grey: #f7f9fa;
   --top-bar-bg: #333333;
 
@@ -89,19 +89,25 @@ h2 {
 
 .section-header {
   text-align: center;
-  margin-bottom: 3rem;
+  margin-bottom: 0;
+  padding-bottom: 2.5rem;
+}
+
+.section-header h2 {
+  margin-bottom: 0.5rem;
 }
 
 .section-header p {
   color: var(--text-muted);
   font-size: 1.1rem;
+  margin: 0;
 }
 
 /* ==========================================================================
    TOP BAR
    ========================================================================== */
 .top-bar {
-  background-color: var(--top-bar-bg);
+  background-color: var(--corp-blue);
   color: #FFFFFF;
   font-size: 0.85rem;
   padding: 8px 0;
@@ -111,6 +117,9 @@ h2 {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  width: 100%;
+  max-width: none;
+  padding: 0 40px;
 }
 
 .top-bar-left,
@@ -160,11 +169,21 @@ h2 {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  width: 100%;
+  max-width: none;
+  padding: 0 40px;
 }
 
 .corp-logo span {
   font-weight: 800;
   letter-spacing: -1px;
+}
+
+.navbar-logo {
+  height: 50px;
+  width: auto;
+  display: block;
+  object-fit: contain;
 }
 
 .nav-links {
@@ -844,7 +863,7 @@ h2 {
     order: 1;
   }
 
-  /* Pricing moved directly under Hero */
+  /* Driven By Innovation — position 2, right after Home */
   #about {
     order: 2;
   }
@@ -877,6 +896,11 @@ h2 {
   }
 
   /* Hide entire top bar on small mobile if needed, or keep right side */
+
+  .nav-container,
+  .top-bar-container {
+    padding: 0 20px !important;
+  }
 
   .nav-links {
     position: fixed;
@@ -926,17 +950,18 @@ h2 {
   .contact-form-split,
   .tech-grid {
     grid-template-columns: 1fr;
-    gap: 40px;
+    gap: 0px;
   }
 
-  /* Services: 2-col grid on mobile instead of overflowing 4-col */
-  .card-grid-4 {
-    grid-template-columns: repeat(2, 1fr) !important;
+  /* Services / About: single column on mobile */
+  .card-grid-4,
+  .card-grid-3 {
+    grid-template-columns: 1fr !important;
     gap: 16px;
   }
 
   /* Portfolio grid: single column on small screens */
-  .portfolio-grid {
+  .card-grid-2 {
     grid-template-columns: 1fr !important;
     gap: 20px;
   }
@@ -960,9 +985,16 @@ h2 {
   }
 
   .stats-grid {
-    flex-direction: column;
-    gap: 30px;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-around;
+    gap: 10px;
     text-align: center;
+  }
+
+  .stat-box {
+    flex: 1;
+    min-width: 0;
   }
 }
 
