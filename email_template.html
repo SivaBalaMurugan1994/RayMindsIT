@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+  body { font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; background-color: #f4f7f6; margin: 0; padding: 0; }
+  .wrapper { width: 100%; table-layout: fixed; background-color: #f4f7f6; padding-top: 40px; padding-bottom: 40px; }
+  .main { background-color: #ffffff; margin: 0 auto; width: 100%; max-width: 600px; border-radius: 8px; overflow: hidden; box-shadow: 0 4px 10px rgba(0,0,0,0.05); border-collapse: collapse; }
+  .header { background-color: #25a9e0; padding: 30px; text-align: center; }
+  .header img { max-width: 60px; display: block; margin: 0 auto; }
+  .header h1 { color: #ffffff; margin: 0; font-size: 24px; font-weight: bold; letter-spacing: 1px; }
+  .content { padding: 40px 30px; color: #333333; line-height: 1.6; }
+  .field-row { margin-bottom: 20px; border-bottom: 1px solid #eeeeee; padding-bottom: 15px; }
+  .field-label { font-size: 13px; color: #888888; text-transform: uppercase; font-weight: bold; letter-spacing: 1px; margin-bottom: 6px; }
+  .field-value { font-size: 16px; color: #222222; }
+  .message-box { background-color: #f9f9f9; padding: 20px; border-radius: 6px; border-left: 4px solid #25a9e0; font-style: italic; white-space: pre-wrap; margin-top: 10px; }
+  .footer { background-color: #1a1a1a; padding: 30px; text-align: center; color: #aaaaaa; font-size: 13px; }
+  .footer p { margin: 5px 0; }
+  .footer a { color: #25a9e0; text-decoration: none; }
+</style>
+</head>
+<body>
+  <center class="wrapper">
+    <table class="main" width="100%" cellpadding="0" cellspacing="0">
+      <!-- HEADER ICON -->
+      <tr>
+        <td class="header">
+          <!-- Placeholder Icon: A clean mail/contact icon -->
+          <img src="https://cdn-icons-png.flaticon.com/512/3059/3059983.png" alt="RayMinds IT Icon">
+          <h1 style="margin-top: 15px;">New Lead</h1>
+        </td>
+      </tr>
+      
+      <!-- CONTACT FIELDS SECTION -->
+      <tr>
+        <td class="content">
+          <p style="margin-top:0; font-size: 16px; margin-bottom: 30px;">You have received a new contact form submission via the RayMinds IT website. Here are the details:</p>
+
+          <div class="field-row">
+            <div class="field-label">Full Name</div>
+            <div class="field-value">{{name}}</div>
+          </div>
+
+          <div class="field-row">
+            <div class="field-label">Email Address</div>
+            <div class="field-value">
+                <a href="mailto:{{email}}" style="color: #25a9e0; text-decoration: none;">{{email}}</a>
+            </div>
+          </div>
+
+          <div class="field-row">
+            <div class="field-label">Mobile Number</div>
+            <div class="field-value">{{mobile}}</div>
+          </div>
+
+          <div class="field-row">
+            <div class="field-label">Subject</div>
+            <div class="field-value">{{subject}}</div>
+          </div>
+
+          <div class="field-row" style="border-bottom: none;">
+            <div class="field-label">Message</div>
+            <div class="field-value message-box">{{message}}</div>
+          </div>
+        </td>
+      </tr>
+
+      <!-- FOOTER DETAILS SECTION -->
+      <tr>
+        <td class="footer">
+          <p style="font-weight: bold; color: #ffffff; font-size: 16px; margin-bottom: 10px; letter-spacing: 1px;">RAYMINDS IT</p>
+          <p>Support: +91 87782 92700</p>
+          <p>Email: <a href="mailto:raymindsit@gmail.com">raymindsit@gmail.com</a></p>
+          <p>Bangalore, Tamil Nadu, India</p>
+          <p style="margin-top: 25px; font-size: 11px; color: #555555;">This email was automatically generated from your contact form.</p>
+        </td>
+      </tr>
+    </table>
+  </center>
+</body>
+</html>

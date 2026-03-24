@@ -199,10 +199,71 @@ document.addEventListener('DOMContentLoaded', () => {
             });
 
             if (isValid) {
-                // Success state UI (Optional simulated submission)
-                contactForm.innerHTML = '<div style="text-align:center; padding: 40px; color: #34a853; width:100%; grid-column: 1 / -1;"><i class="fas fa-check-circle fa-4x" style="margin-bottom:20px;"></i><h3>Message Sent Successfully!</h3><p style="color:#666;">We will get back to you shortly.</p></div>';
+                const submitBtn = contactForm.querySelector('button[type="submit"]');
+                const originalText = submitBtn.innerText;
+                submitBtn.innerText = 'Sending...';
+                submitBtn.disabled = true;
+
+                // SHOW LOADING
+                const overlay = document.getElementById('loading-overlay');
+                if(overlay) overlay.classList.add('active');
+
+                const templateParams = {
+                    name: document.getElementById('name').value,
+                    email: document.getElementById('email').value,
+                    mobile: document.getElementById('mobile').value,
+                    subject: document.getElementById('subject').value,
+                    message: document.getElementById('message').value
+                };
+
+                // Replace 'YOUR_SERVICE_ID' and 'YOUR_TEMPLATE_ID' with your actual EmailJS IDs
+                emailjs.send('service_ao5utkr', 'template_bcnis99', templateParams)
+                    .then(function() {
+                        if(overlay) overlay.classList.remove('active');
+                        submitBtn.innerText = originalText;
+                        submitBtn.disabled = false;
+                        contactForm.reset();
+                        showToast('success', 'Success!', 'Your message has been sent successfully.');
+                    }, function(error) {
+                        console.error('EmailJS Error:', error);
+                        if(overlay) overlay.classList.remove('active');
+                        submitBtn.innerText = originalText;
+                        submitBtn.disabled = false;
+                        showToast('error', 'Failed!', 'There was an error sending your message. Please try again.');
+                    });
             }
         });
+    }
+
+    // --- Toast Notification System ---
+    function showToast(type, title, message) {
+        const container = document.getElementById('toast-container');
+        if (!container) return;
+
+        const toast = document.createElement('div');
+        toast.classList.add('toast', type);
+
+        const iconClass = type === 'success' ? 'fa-check-circle' : 'fa-times-circle';
+
+        toast.innerHTML = `
+            <div class="toast-icon">
+                <i class="fas ${iconClass}"></i>
+            </div>
+            <div class="toast-content">
+                <h4>${title}</h4>
+                <p>${message}</p>
+            </div>
+        `;
+
+        container.appendChild(toast);
+
+        // Remove toast after 5 seconds
+        setTimeout(() => {
+            toast.classList.add('hiding');
+            toast.addEventListener('animationend', () => {
+                toast.remove();
+            });
+        }, 5000);
     }
 
 });

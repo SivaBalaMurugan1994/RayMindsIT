@@ -22,7 +22,7 @@
     <div class="top-bar">
         <div class="container top-bar-container">
             <div class="top-bar-left">
-                <span class="top-bar-item"><i class="fas fa-envelope"></i> info@raymindsit.com</span>
+                <span class="top-bar-item"><i class="fas fa-envelope"></i> raymindsit@gmail.com</span>
                 <span class="top-bar-item" style="color:#d1d1d1;">Support: +91 87782 92700</span>
             </div>
             <div class="top-bar-right">
@@ -220,6 +220,26 @@
                             </div>
                         </div>
                     </div>
+
+                    <!-- New Project: Alif Al Ameen -->
+                    <div class="corp-card portfolio-card portfolio-full">
+                        <div class="portfolio-img"
+                            style="background-image: url('https://s0.wp.com/mshots/v1/https://alifalameen.com?w=1200'); background-position: top center;">
+                        </div>
+                        <div class="portfolio-info" style="display: flex; flex-direction: column; height: auto;">
+                            <div>
+                                <h3>Alif Al Ameen</h3>
+                                <p>Corporate Business Presence</p>
+                                <div class="tags">
+                                    <span>Corporate Site</span><span>Web Design</span><span>Live Website</span>
+                                </div>
+                            </div>
+                            <div style="margin-top: 25px;">
+                                <a href="https://alifalameen.com/" target="_blank" class="btn btn-primary" style="padding: 10px 20px; font-size: 0.9rem;">View Live Project &rarr;</a>
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
             </div>
         </section>
@@ -337,6 +357,9 @@
                     <div class="tech-card"><i class="devicon-figma-plain colored"></i><span>Figma</span></div>
                     <div class="tech-card"><i class="devicon-php-plain colored"></i><span>PHP</span></div>
                     <div class="tech-card"><i class="devicon-mysql-plain colored"></i><span>MySQL</span></div>
+                    <div class="tech-card"><i class="devicon-flutter-plain colored"></i><span>Flutter</span></div>
+                    <div class="tech-card"><i class="devicon-ionic-original colored"></i><span>Ionic</span></div>
+                    <div class="tech-card"><i class="devicon-android-plain colored"></i><span>Android</span></div>
                 </div>
             </div>
         </section>
@@ -357,7 +380,7 @@
                         </div>
                         <div class="info-content">
                             <h3>Email Us</h3>
-                            <p>info@raymindsit.com</p>
+                            <p>raymindsit@gmail.com</p>
                         </div>
                     </div>
 
@@ -420,15 +443,43 @@
                     </form>
                 </div>
 
-                <div class="footer-bottom text-center">
-                    <p>&copy; 2026 RayMinds IT. All rights reserved.</p>
-                </div>
             </div>
         </section>
 
     </main>
 
+    <!-- Corporate Footer Section -->
+    <footer class="corp-footer">
+        <div class="container text-center">
+            <div class="mobile-footer-contact">
+                <a href="https://wa.me/918778292700" target="_blank" class="whatsapp-btn-full">
+                    <i class="fab fa-whatsapp"></i> Chat with us on WhatsApp
+                </a>
+                <p><i class="fas fa-envelope"></i> raymindsit@gmail.com</p>
+                <p><i class="fas fa-headset"></i> Support: +91 87782 92700</p>
+            </div>
+            <p>&copy; 2026 RayMinds IT. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- UI Overlays -->
+    <div id="loading-overlay" class="loading-overlay">
+        <div class="spinner"></div>
+        <div class="loading-text">Sending Message...</div>
+    </div>
+    <div id="toast-container" class="toast-container"></div>
+
     <!-- JavaScript -->
+    <!-- EmailJS SDK -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script type="text/javascript">
+        (function () {
+            // Replace 'YOUR_PUBLIC_KEY' with your EmailJS public key
+            emailjs.init({
+                publicKey: "bZXEYk5joVLTdxrPq",
+            });
+        })();
+    </script>
     <script src="script.js"></script>
 </body>
 
